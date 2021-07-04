@@ -13,12 +13,17 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter @NoArgsConstructor
-public class User {
+public class User implements Comparable<User>{
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
 
     private String name;
     private String email;
+
+    public int compareTo(User user2) {
+        return email.compareTo(user2.email);
+    }
+
 
 }
